@@ -1,0 +1,38 @@
+.image .product-image {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.image .product-image-wrapper {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 150px;
+    line-height: 1;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    width: 150px;
+}
+
+.image {
+    background: #ffffff;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 1.2rem;
+    position: relative;
+    vertical-align: top;
+    width: 150px;
+}
+
+.image .product-image-wrapper:hover .product-image {
+    opacity: .5;
+}

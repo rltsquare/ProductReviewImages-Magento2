@@ -1,0 +1,81 @@
+<?php
+/**
+ * NOTICE OF LICENSE
+ * You may not sell, distribute, sub-license, rent, lease or lend complete or portion of software to anyone.
+ *
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade to newer
+ * versions in the future.
+ *
+ * @package   RLTSquare_ProductReviewImages
+ * @copyright Copyright (c) 2017 RLTSquare (https://www.rltsquare.com)
+ * @contacts  support@rltsquare.com
+ * @license  See the LICENSE.md file in module root directory
+ */
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php if (count($block->getMediaCollection())): ?>
+    <div class="review-attachments">
+        <div class="review-media-value">
+            <?php
+
+            foreach ($block->getMediaCollection() as $m) {
+                $path =  $block->getReviewMediaUrl() . $m->getMediaUrl();
+                ?>
+                <div class="image item base-image" data-role="image">
+                    <div class="product-image-wrapper">
+                        <img class="product-image" data-role="image-element" src="<?php echo $path; ?>" alt="Image">
+                        <div class="actions">
+                            <button type="button" class="action-remove" media-id="<?php echo $m->getPrimaryId(); ?>" data-role="delete-button" title="Delete image">
+                                <span>Delete image</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+<?php else: ?>
+    <?= $block->escapeHtml(__("No attachment available.")) ?>
+<?php endif; ?>
+
+
+<div id="review-image-modal" style="display:none;">
+    <img id="review-image-lg" src=""/>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+        ],
+        function ($) {
+
+            $('.action-remove').on('click', function (e) {
+                var mediaId = e.target.getAttribute('media-id');
+                $('#deleted_media').val($('#deleted_media').val()  + mediaId + ",");
+                $(e.target).parent().parent().parent().remove();
+            });
+
+            $(".product-image").on('click', function () {
+
+                $("#review-image-modal").html("");
+                $("#review-image-modal").prepend('<img id="review-image-lg" src="' + $(this).attr("src") + '"/>');
+
+                $("#review-image-modal").modal({
+                    type: 'popup',
+                    title: 'Review Image',
+                    clickableOverlay: true,
+                    buttons:[],
+                    responsive: true
+                }).modal('openModal').css({"text-align":"center"});
+            });
+
+        })
+</script>
+

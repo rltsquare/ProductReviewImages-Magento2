@@ -36,7 +36,7 @@ This extension will also be available on the Magento® Marketplace when approved
    
    #### OR
    
-   You can also clone this repo under Magento® 2 following directory:
+   You can also download code from this repo under Magento® 2 following directory:
     
     ```
     app/code/RLTSquare/ProductReviewImages

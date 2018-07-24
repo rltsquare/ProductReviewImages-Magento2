@@ -21,7 +21,8 @@ $_items = $block->getReviewsCollection()->getItems();
 $format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
 
 $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$mediaDirectoryPath = $this->getUrl('pub/media/review_images');
+$storeManager = $_objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$mediaDirectoryPath= $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_WEB).'pub/media/review_images';
 
 ?>
 <?php if (count($_items)): ?>

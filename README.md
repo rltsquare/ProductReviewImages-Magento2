@@ -60,7 +60,7 @@ This extension will also be available on the Magento® Marketplace when approved
 
 ## Requirements
 
-1. This Magento® extension works on Magento 2.1 and 2.2 versions. Tested on versions 2.1.6 and above.
+1. This Magento® extension works on Magento 2.1, 2.2, 2.3 and 2.4 versions. Tested on versions 2.1.6 and above.
 
 2. Tested on different themes specifically Ultimo, Porto and certain custom themes
 
